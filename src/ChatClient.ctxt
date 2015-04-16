@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=pIPAdresse\ pPortNr
+comment0.target=ChatClient(java.lang.String,\ int)
+comment1.params=pMessage
+comment1.target=void\ process(java.lang.String)
+comment2.params=e
+comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
+numComments=3
