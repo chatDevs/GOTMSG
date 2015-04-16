@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=EchoServer()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ EchoServer\r\n
+comment1.params=pClientIP\ pClientPort
+comment1.target=void\ processNewConnection(java.lang.String,\ int)
+comment1.text=\r\n\ Diese\ Methode\ wird\ aufgerufen,\ wenn\ eine\ Verbindungs-Anfrage\ von\ einem\ Client\ kommt.\r\n\ wenn\ die\ Methode\ durchgef\u00FChrt\ wurde,\ steht\ die\ verbindung.\r\n\ die\ methode\ ist\ in\ server\ abstract\ und\ muss\ daher\ \u00FCberschrieben\ werden.\r\n\ \r\n
+comment2.params=pClientIP\ pClientPort\ pMessage
+comment2.target=void\ processMessage(java.lang.String,\ int,\ java.lang.String)
+comment2.text=\r\n\ Diese\ Methode\ wird\ aufgerufen,\ wenn\ eine\ Anfrage\ von\ einem\ Client\ kommt\r\n\ Auch\ sie\ \u00FCberschreibt\ die\ Methode\ der\ abtrakten\ Serverklasse\ und\ gibt\ (weil\ ich\ ja\ ein\ Echo-Server\ bin)\ \r\n\ einfach\ die\ Nachricht,\ die\ ich\ bekommen\ habe,\ wieder\ zur\u00FCck\r\n
+comment3.params=pClientIP\ pClientPort
+comment3.target=void\ processClosedConnection(java.lang.String,\ int)
+comment3.text=\r\n\ Diese\ Methode\ wird\ aufgerufen,\ wenn\ die\ Verbindung\ beendet\ wird.\r\n
+numComments=4

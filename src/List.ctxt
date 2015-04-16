@@ -1,0 +1,38 @@
+#BlueJ class context
+comment0.params=
+comment0.target=List()
+comment0.text=\r\n\ Eine\ leere\ Liste\ wird\ erzeugt.\r\n
+comment1.params=
+comment1.target=boolean\ isEmpty()
+comment1.text=\r\n\ Die\ Anfrage\ liefert\ den\ Wert\ true,\ wenn\ die\ Liste\ \r\n\ keine\ Objekte\ enthaelt,\ sonst\ liefert\ sie\ den\ Wert\ false.\r\n\ @return\ true,\ wenn\ die\ Liste\ leer\ ist,\ sonst\ false\r\n
+comment10.params=pList
+comment10.target=void\ concat(List)
+comment10.text=\r\n\ Die\ Liste\ pList\ wird\ an\ die\ Liste\ angehaengt.\ Anschliessend\ \r\n\ wird\ pList\ eine\ leere\ Liste.\ Das\ aktuelle\ Objekt\ bleibt\ unveraendert.\ \r\n\ Falls\ pList\ null\ oder\ eine\ leere\ Liste\ ist,\ bleibt\ die\ Liste\ \r\n\ unveraendert.\r\n\ @param\ pList\ Liste\r\n
+comment11.params=
+comment11.target=void\ remove()
+comment11.text=\r\n\ Falls\ es\ ein\ aktuelles\ Objekt\ gibt\ (hasAccess()\ \=\=\ true),\r\n\ wird\ das\ aktuelle\ Objekt\ geloescht\ und\ das\ Objekt\ hinter\ \r\n\ dem\ gelaeschten\ Objekt\ wird\ zum\ aktuellen\ Objekt.\ Wird\ das\ \r\n\ Objekt,\ das\ am\ Ende\ der\ Liste\ steht,\ geloescht,\ gibt\ es\ kein\ \r\n\ aktuelles\ Objekt\ mehr\ (hasAccess()\ \=\=\ false).\ Wenn\ die\ Liste\ \r\n\ leer\ ist\ oder\ es\ kein\ aktuelles\ Objekt\ gibt\ (hasAccess()\ \=\=\ false),\r\n\ bleibt\ die\ Liste\ unveraendert.\r\n
+comment2.params=
+comment2.target=boolean\ hasAccess()
+comment2.text=\r\n\ Die\ Anfrage\ liefert\ den\ Wert\ true,\ wenn\ es\ ein\r\n\ aktuelles\ Objekt\ gibt,\ sonst\ \r\n\ liefert\ sie\ den\ Wert\ false.\r\n\ @return\ true,\ falls\ Zugriff\ moeglich,\ sonst\ false\r\n
+comment3.params=
+comment3.target=void\ next()
+comment3.text=\r\n\ Falls\ die\ Liste\ nicht\ leer\ ist,\ es\ ein\ aktuelles\ \r\n\ Objekt\ gibt\ und\ dieses\ nicht\ das\ letzte\ Objekt\ der\ \r\n\ Liste\ ist,\ wird\ das\ dem\ aktuellen\ Objekt\ in\ der\ Liste\ \r\n\ folgende\ Objekt\ zum\ aktuellen\ Objekt,\ andernfalls\ gibt\ \r\n\ es\ nach\ Ausf\u00FChrung\ des\ Auftrags\ kein\ aktuelles\ Objekt,\ \r\n\ d.h.\ hasAccess()\ liefert\ den\ Wert\ false.\r\n
+comment4.params=
+comment4.target=void\ toFirst()
+comment4.text=\r\n\ Falls\ die\ Liste\ nicht\ leer\ ist,\ wird\ das\ erste\ \r\n\ Objekt\ der\ Liste\ aktuelles\ Objekt.\ \r\n\ Ist\ die\ Liste\ leer,\ geschieht\ nichts.\r\n
+comment5.params=
+comment5.target=void\ toLast()
+comment5.text=\r\n\ Falls\ die\ Liste\ nicht\ leer\ ist,\ wird\ das\ \r\n\ letzte\ Objekt\ der\ Liste\ aktuelles\ Objekt.\ \r\n\ Ist\ die\ Liste\ leer,\ geschieht\ nichts.\r\n
+comment6.params=
+comment6.target=java.lang.Object\ getObject()
+comment6.text=\r\n\ Falls\ es\ ein\ aktuelles\ Objekt\ gibt\ \r\n\ (hasAccess()\ \=\=\ true),\ wird\ das\ aktuelle\ Objekt\ \r\n\ zurueckgegeben,\ andernfalls\ (hasAccess()\=\=\ false)\ \r\n\ gibt\ die\ Anfrage\ den\ Wert\ null\ zurueck.\r\n\ @return\ Inhaltsobjekt\r\n
+comment7.params=pObject
+comment7.target=void\ setObject(java.lang.Object)
+comment7.text=\r\n\ Falls\ es\ ein\ aktuelles\ Objekt\ gibt\ (hasAccess()\ \=\=\ true)\r\n\ und\ pObject\ ungleich\ null\ ist,\ wird\ das\ aktuelle\ Objekt\ \r\n\ durch\ pObject\ ersetzt.\ Sonst\ bleibt\ die\ Liste\ unveraendert.\r\n\ @param\ pObject\ Inhaltsobjekt\r\n
+comment8.params=pObject
+comment8.target=void\ append(java.lang.Object)
+comment8.text=\r\n\ Ein\ neues\ Objekt\ pObject\ wird\ am\ Ende\ der\ Liste\ eingefuegt.\ \r\n\ Das\ aktuelle\ Objekt\ bleibt\ unveraendert.\ Wenn\ die\ Liste\ \r\n\ leer\ ist,\ wird\ das\ Objekt\ pObject\ in\ die\ Liste\ eingefuegt\ \r\n\ und\ es\ gibt\ weiterhin\ kein\ aktuelles\ Objekt\ \r\n\ (hasAccess()\ \=\=\ false).\ Falls\ pObject\ gleich\ null\ ist,\ \r\n\ bleibt\ die\ Liste\ unveraendert.\ \r\n@param\ pObject\ Inhaltsobject\r\n
+comment9.params=pObject
+comment9.target=void\ insert(java.lang.Object)
+comment9.text=\r\nFalls\ es\ ein\ aktuelles\ Objekt\ gibt\ (hasAccess()\ \=\=\ true),\r\nwird\ ein\ neues\ Objekt\ vor\ dem\ aktuellen\ Objekt\ in\ die\ \r\nListe\ eingefuegt.\ Das\ aktuelle\ Objekt\ bleibt\ unveraendert.\ \r\nWenn\ die\ Liste\ leer\ ist,\ wird\ pObject\ in\ die\ Liste\ eingefuegt\r\nund\ es\ gibt\ weiterhin\ kein\ aktuelles\ Objekt\ \r\n(hasAccess()\ \=\=\ false).\ Falls\ es\ kein\ aktuelles\ Objekt\ gibt\ \r\n(hasAccess()\ \=\=\ false)\ und\ die\ Liste\ nicht\ leer\ ist\ oder\ \r\npObject\ gleich\ null\ ist,\ bleibt\ die\ Liste\ unveraendert.\r\n@param\ pObject\ Inhaltsobjekt\r\n
+numComments=12

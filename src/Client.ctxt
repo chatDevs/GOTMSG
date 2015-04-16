@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=pIPAdresse\ pPortNr
+comment0.target=Client(java.lang.String,\ int)
+comment0.text=\r\n\ \ \ \ Der\ Client\ ist\ mit\ Ein-\ und\ Ausgabestreams\ initialisiert.<br>\r\n\ \ \ \ @param\ pIPAdresse\ IP-Adresse\ bzw.\ Domain\ des\ Servers\r\n\ \ \ \ @param\ pPortNr\ Portnummer\ des\ Sockets\r\n
+comment1.params=pMessage
+comment1.target=void\ send(java.lang.String)
+comment2.params=
+comment2.target=boolean\ istVerbunden()
+comment3.params=
+comment3.target=java.lang.String\ toString()
+comment4.params=pMessage
+comment4.target=void\ processMessage(java.lang.String)
+comment4.text=\r\n\ \ \ \ \ Eine\ Nachricht\ vom\ Server\ wurde\ bearbeitet.<br>\r\n\ \ \ \ \ Diese\ abstrakte\ Methode\ muss\ in\ Unterklassen\ &uuml;berschrieben\ werden.\r\n\ \ \ \ \ @param\ pMessage\ die\ empfangene\ Nachricht,\ die\ bearbeitet\ werden\ soll\r\n
+comment5.params=
+comment5.target=void\ close()
+comment5.text=\r\n\ \ \ \ Die\ Verbindung\ wurde\ mit\ Ein-\ und\ Ausgabestreams\ geschlossen.\r\n
+numComments=6
