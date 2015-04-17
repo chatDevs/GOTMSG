@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=port
+comment0.target=ChatServer(int)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ ChatServer\r\n
+comment1.params=ipPort
+comment1.target=java.lang.String\ checkUser(java.lang.String)
+comment2.params=ip\ port
+comment2.target=void\ processNewConnection(java.lang.String,\ int)
+comment3.params=ip\ port\ msg
+comment3.target=void\ processMessage(java.lang.String,\ int,\ java.lang.String)
+comment4.params=ip\ port
+comment4.target=void\ processClosedConnection(java.lang.String,\ int)
+numComments=5

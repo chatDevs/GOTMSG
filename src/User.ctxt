@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=ip\ port\ name
+comment0.target=User(java.lang.String,\ int,\ java.lang.String)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ User\r\n
+comment1.params=
+comment1.target=java.lang.String\ ip()
+comment2.params=
+comment2.target=int\ nort()
+comment3.params=name
+comment3.target=void\ name(java.lang.String)
+comment4.params=
+comment4.target=java.lang.String\ name()
+numComments=5
