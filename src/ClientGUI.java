@@ -141,6 +141,7 @@ public class ClientGUI extends JFrame {
             btnMSG.setActionCommand("MSG");
         btnMSG.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
+                write(">ME TO "+tfDST.getText()+": "+tfText.getText());
                 send("MSG "+tfText.getText()+" TO "+tfDST.getText());
             }
         });
@@ -148,6 +149,7 @@ public class ClientGUI extends JFrame {
         Button btnBRD = new Button("broadcast");
         btnBRD.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                write(">ME TO ALL: "+tfText.getText());
                 send("BRD "+tfText.getText());
             }
         });
