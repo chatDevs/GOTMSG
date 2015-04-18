@@ -1,0 +1,34 @@
+Class documentation
+<---- javadoc command: ---->
+C:\Program Files\Java\jdk1.8.0_05\bin\javadoc.exe
+-author
+-version
+-nodeprecated
+-package
+-noindex
+-notree
+-nohelp
+-nonavbar
+-source
+1.8
+-classpath
+V:\BlueJ\App\BlueJ\lib\bluejcore.jar;V:\BlueJ\App\BlueJ\lib\junit-4.8.2.jar;V:\BlueJ\App\BlueJ\lib\userlib\abiturklassen.jar;V:\BlueJ\App\BlueJ\lib\userlib\gluegen-natives-windows-i586.jar;V:\BlueJ\App\BlueJ\lib\userlib\gluegen-rt-natives-linux-amd64.jar;V:\BlueJ\App\BlueJ\lib\userlib\gluegen-rt-natives-linux-armv7.jar;V:\BlueJ\App\BlueJ\lib\userlib\gluegen-rt-natives-linux-armv7hf.jar;V:\BlueJ\App\BlueJ\lib\userlib\gluegen-rt-natives-linux-i586.jar;V:\BlueJ\App\BlueJ\lib\userlib\gluegen-rt-natives-macosx-universal.jar;V:\BlueJ\App\BlueJ\lib\userlib\gluegen-rt-natives-solaris-amd64.jar;V:\BlueJ\App\BlueJ\lib\userlib\gluegen-rt-natives-solaris-i586.jar;V:\BlueJ\App\BlueJ\lib\userlib\gluegen-rt-natives-windows-amd64.jar;V:\BlueJ\App\BlueJ\lib\userlib\gluegen-rt-natives-windows-i586.jar;V:\BlueJ\App\BlueJ\lib\userlib\gluegen-rt.jar;V:\BlueJ\App\BlueJ\lib\userlib\gluegen.jar;V:\BlueJ\App\BlueJ\lib\userlib\GOOP.jar;V:\BlueJ\App\BlueJ\lib\userlib\joal-natives-windows-i586.jar;V:\BlueJ\App\BlueJ\lib\userlib\joal.jar;V:\BlueJ\App\BlueJ\lib\userlib\jocl-natives-windows-i586.jar;V:\BlueJ\App\BlueJ\lib\userlib\jocl.jar;V:\BlueJ\App\BlueJ\lib\userlib\jogl-all-mobile.jar;V:\BlueJ\App\BlueJ\lib\userlib\jogl-all-natives-android-armv7.jar;V:\BlueJ\App\BlueJ\lib\userlib\jogl-all-natives-linux-amd64.jar;V:\BlueJ\App\BlueJ\lib\userlib\jogl-all-natives-linux-armv7.jar;V:\BlueJ\App\BlueJ\lib\userlib\jogl-all-natives-linux-armv7hf.jar;V:\BlueJ\App\BlueJ\lib\userlib\jogl-all-natives-linux-i586.jar;V:\BlueJ\App\BlueJ\lib\userlib\jogl-all-natives-macosx-universal.jar;V:\BlueJ\App\BlueJ\lib\userlib\jogl-all-natives-solaris-amd64.jar;V:\BlueJ\App\BlueJ\lib\userlib\jogl-all-natives-solaris-i586.jar;V:\BlueJ\App\BlueJ\lib\userlib\jogl-all-natives-windows-amd64.jar;V:\BlueJ\App\BlueJ\lib\userlib\jogl-all-natives-windows-i586.jar;V:\BlueJ\App\BlueJ\lib\userlib\jogl-all-noawt.jar;V:\BlueJ\App\BlueJ\lib\userlib\jogl-all.jar;V:\BlueJ\App\BlueJ\lib\userlib\mysql-connector-java-5.1.20-bin.jar;V:\BlueJ\App\BlueJ\lib\userlib\slg.jar;\\MNSplusFile\geodor280698$\Eigene Dateien\Informatik\Netzwerke\chatServer\src
+-d
+\\MNSplusFile\geodor280698$\Eigene Dateien\Informatik\Netzwerke\chatServer\src\doc
+-encoding
+windows-1252
+-charset
+windows-1252
+-docletpath
+V:\BlueJ\App\BlueJ\lib\bjdoclet.jar
+-doclet
+bluej.doclet.doclets.formats.html.HtmlDoclet
+\\MNSplusFile\geodor280698$\Eigene Dateien\Informatik\Netzwerke\chatServer\src\Server.java
+<---- end of javadoc command ---->
+Creating destination directory: "\MNSplusFile\geodor280698$\Eigene Dateien\Informatik\Netzwerke\chatServer\src\doc\"
+Loading source file \\MNSplusFile\geodor280698$\Eigene Dateien\Informatik\Netzwerke\chatServer\src\Server.java...
+Constructing Javadoc information...
+Standard Doclet version 1.8.0_05
+Building tree for all the packages and classes...
+javadoc: error - Unable to create directory \MNSplusFile\geodor280698$\Eigene Dateien\Informatik\Netzwerke\chatServer\src\doc\
+1 error

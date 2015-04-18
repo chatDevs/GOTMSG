@@ -25,7 +25,7 @@ public class User
         return ip;
     }
     
-    public int nort(){
+    public int port(){
         return port;
     }
     
