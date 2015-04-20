@@ -95,4 +95,15 @@ public class ChatServer extends Server
         }  
 
     }
+
+    
+    @Override
+    public void send(String ip, int port, String msg){
+    
+    }
+    
+    @Override
+    public void sendToAll(String msg){
+       
+    }
 }

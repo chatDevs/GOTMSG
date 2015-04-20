@@ -1,4 +1,4 @@
-
+import java.net.Socket;
 /**
  * Write a description of class User here.
  * 
@@ -10,10 +10,19 @@ public class User
     private String ip;
     private int port;
     private String name;
+    private Socket socket;
     
     /**
      * Constructor for objects of class User
      */
+    public User(String ip, int port, String name, Socket socket)
+    {
+        this.ip = ip;
+        this.port = port;
+        this.name = name;
+        this.socket = socket;
+    }
+    
     public User(String ip, int port, String name)
     {
         this.ip = ip;
@@ -35,5 +44,9 @@ public class User
     
     public String name(){
         return name;
+    }
+    
+    public Socket socket(){
+        return socket;
     }
 }

@@ -1,0 +1,242 @@
+import java.net.Socket;
+/**
+ * Ein einfacher Chatserver.
+ * 
+ * Protokoll: 
+ * @author Georg Dorndorf, Adrian Hinrichs
+ * @version 18.04.2015
+ */
+public class GOTMSG
+{
+    private final int port;
+    private java.util.Map<String, User> users;
+    private java.util.Map<String, User> userAddr;
+    private int id;
+
+    /**
+    @author Georg Dorndorf
+    @version 18.04.2015
+     */
+    private class Connection
+    {
+        public class Conn extends Thread {
+            private Socket socket;
+            private BufferedReader from;
+            private PrintWriter to;
+            private String ip;
+            private int port;
+
+            public Conn(String ip, int port){
+                this.ip = ip;
+                this.port = port;
+                connect();
+            }
+
+            public Connection(Socket socket) {
+                this.socket = socket;
+                port=s.getLocalPort();
+                try {
+                    
+                    zumHost = new PrintWriter(s.getOutputStream(), true);
+                    //Objekt zum Empfangen von Nachrichten ueber das Socketobjekt erzeugen
+                    vomHost= new BufferedReader(new InputStreamReader(s.getInputStream()));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            private String connect() {
+                try {
+                    s = new Socket(serverName,port);
+                    //Objekt zum Versenden von Nachrichten ueber den Socket erzeugen
+                    zumHost = new PrintWriter(s.getOutputStream(), true);
+                    //Objekt zum Empfangen von Nachrichten ueber das Socketobjekt erzeugen
+                    vomHost= new BufferedReader(new InputStreamReader(s.getInputStream()));
+                    return "Verbindung : " + s;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return e.getMessage();
+                }
+            }
+
+
+            public String receive() {
+                try {
+                    return vomHost.readLine();
+                }
+                catch ( IOException e) {
+                    System.out.println("Verbindung zu " + getRemoteIP() + " " + getLocalPort() + " ist unterbrochen");
+                }
+                return null;
+            }
+
+            public void send(String nachricht) {
+                zumHost.println(nachricht);
+                zumHost.flush();
+            }
+
+            public boolean isConnected() {
+                return s.isConnected();
+            }
+
+            public boolean isClosed() {
+                return s.isClosed();
+            }
+
+            public String getRemoteIP() {
+                return "" + s.getInetAddress();
+            }
+
+            public String getLocalIP() {
+                return "" + s.getLocalAddress();
+            }
+
+            public int getRemotePort() {
+                return s.getPort();
+            }
+
+            public int getLocalPort() {
+                return s.getLocalPort();
+            }
+
+            public void close() {
+                try {
+                    s.close();
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            public Socket verbindungsSocket() {
+                return s;
+            }
+            private GOTMSG server;
+
+            public Connection(Socket socket, GOTMSG server)
+            {
+                this.server = server;
+            }
+
+            /**
+            Solange der Client Nachrichten sendete, wurden diese empfangen und an die Server weitergereicht.<br>
+            Abgebrochene Verbindungen wurden erkannt.
+             */
+            public void run()
+            {
+                String lNachricht;
+
+                while (!this.isClosed())
+                {
+                    lNachricht = this.receive();
+                    if (lNachricht == null)
+                    {
+                        if (!this.isClosed())
+                        {
+                            server.closeConnection(this.getRemoteIP(), this.getRemotePort());
+                        }
+                    }
+                    else
+                        server.processMessage(this.getRemoteIP(), this.getRemotePort(), lNachricht);
+                }
+            }
+
+        }  
+
+        private class loop extends Thread{
+            private GOTMSG server;
+        }
+
+        /**
+         * Constructor for objects of class ChatServer
+         */
+        public GOTMSG(int port)
+        {
+            super(port);
+            this.port = port;
+            users = new java.util.HashMap<String, User>();
+            userAddr = new java.util.HashMap<String, User>();
+        }
+
+        private User checkUser(String name){
+            return users.get(name);
+        }
+
+        private User checkAddr(String ipPort){
+            return userAddr.get(ipPort);
+        }
+
+        @Override
+        public void processNewConnection(String ip, int port){
+            send(ip, port, "OK READY");
+        }
+
+        @Override
+        public void processMessage(String ip, int port, String msg){
+            System.out.println(msg);
+            User from=checkAddr(ip+":"+port);
+            if(msg.matches("\\bUSER\\b\\s.\\w+")){
+                System.out.println("OK user logged in " + ip);
+                send(ip, port, "OK");
+                User u = new User(ip, port, msg.split("USER ")[1]);
+                users.put(msg.split("USER ")[1], u);
+                userAddr.put(ip + ":" + port, u);
+            } else if (msg.matches("\\bMSG\\b\\s.+\\s\\bTO\\b\\s.+")){
+                id++;
+                send(ip, port, "GOTMSG " + id);
+
+                String mto = msg .split(" TO ")[0];
+                String uname = msg.split(" TO ")[1];
+                User to=checkUser(uname);
+
+                mto = mto.split("MSG ")[1];
+
+                if (to != null){
+                    send(to.ip(), to.port(), "MSG " + mto + " FROM " + from.name() + " WITH " + id);
+                }
+            } else if(msg.matches("BRD\\s.+")){
+                id++;
+                send(ip, port, "GOTBRD " + id);
+
+                sendToAll(msg + " FROM " + from.name());
+            } else if(msg.matches("\\bLST\\b")){
+                java.util.Collection<User> u = users.values();
+                StringBuilder m = new StringBuilder();
+                m.append("LST ");
+                for (User us:u){
+                    //System.out.println(us.name());
+                    m.append(us.name() + ";");
+                }
+                send(ip, port, m.toString());
+            } else if(msg.matches("\\bQUIT\\b")){
+                sendToAll("BRD User " + from.name() + " is leaving!");
+                users.remove(from.name());
+                userAddr.remove(ip + ":" + port);
+            } else {
+                send(ip, port, "ERR");
+            }
+        }
+
+        @Override
+        public void processClosedConnection(String ip, int port){
+            User dc = checkAddr(ip + ":" + port);
+
+            if (dc == null){
+                sendToAll("User " + dc.name() + " timed out!");
+
+                users.remove(dc.name());
+                userAddr.remove(ip + ":" + port);
+            }  
+
+        }
+
+        @Override
+        public void send(String ip, int port, String msg){
+
+        }
+
+        @Override
+        public void sendToAll(String msg){
+
+        }
+    }

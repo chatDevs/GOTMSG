@@ -1,4 +1,3 @@
- 
 
 import java.net.*;
 import java.io.*;
@@ -11,8 +10,8 @@ import java.io.*;
  * <p>Objekte der Klasse Connection ermöglichen eine Netzwerkverbindung mit
  * dem TCP/IP-Protokoll. Es können nach Verbindungsaufbau zu einem Server
  * Zeichenketten (Strings) gesendet und empfangen werden. Zur Vereinfachung
-  * geschieht dies zeilenweise, d. h., beim Senden einer Zeichenkette wird ein
-  * Zeilentrenner ergänzt und beim Empfangen wird er entfernt.</p>
+ * geschieht dies zeilenweise, d. h., beim Senden einer Zeichenkette wird ein
+ * Zeilentrenner ergänzt und beim Empfangen wird er entfernt.</p>
  *
  * <p>NW-Arbeitsgruppe: Materialentwicklung zum Zentralabitur
  * im Fach Informatik</p>
@@ -35,7 +34,7 @@ public class Connection extends Thread {
         this.port = port;
         connect();
     }
-    
+
     public Connection(Socket socket) {
         s = socket;
         port=s.getLocalPort();
@@ -48,8 +47,7 @@ public class Connection extends Thread {
             e.printStackTrace();
         }
     }
-        
-    
+
     private String connect() {
         try {
             s = new Socket(serverName,port);
@@ -63,12 +61,12 @@ public class Connection extends Thread {
             return e.getMessage();
         }
     }
-    
-  /** 
-   * Es wird auf eine eingehende Nachricht vom Server gewartet und diese
-   * Nachricht zurückgegeben, wobei der vom Server angehängte Zeilentrenner
-   * entfernt wird. Während des Wartens ist der ausführende Prozess blockiert.
-   */
+
+    /** 
+     * Es wird auf eine eingehende Nachricht vom Server gewartet und diese
+     * Nachricht zurückgegeben, wobei der vom Server angehängte Zeilentrenner
+     * entfernt wird. Während des Wartens ist der ausführende Prozess blockiert.
+     */
     public String receive() {
         try {
             return vomHost.readLine();
@@ -76,42 +74,42 @@ public class Connection extends Thread {
         catch ( IOException e) {
             System.out.println("Verbindung zu " + getRemoteIP() + " " + getLocalPort() + " ist unterbrochen");
         }
-            return null;
+        return null;
     }
- /** 
-  * Die angegebene Nachricht pMessage wird - um einen Zeilentrenner erweitert -
-  * an den Server versandt.
-  */
+
+    /** 
+     * Die angegebene Nachricht pMessage wird - um einen Zeilentrenner erweitert -
+     * an den Server versandt.
+     */
     public void send(String nachricht) {
         zumHost.println(nachricht);
         zumHost.flush();
     }
-    
+
     public boolean isConnected() {
         return s.isConnected();
     }
-    
+
     public boolean isClosed() {
         return s.isClosed();
     }
 
-
     public String getRemoteIP() {
         return "" + s.getInetAddress();
     }
-    
-     public String getLocalIP() {
+
+    public String getLocalIP() {
         return "" + s.getLocalAddress();
     }
-    
+
     public int getRemotePort() {
         return s.getPort();
     }
-    
-     public int getLocalPort() {
+
+    public int getLocalPort() {
         return s.getLocalPort();
     }
-        
+
     public void close() {
         try {
             s.close();
@@ -120,9 +118,9 @@ public class Connection extends Thread {
             e.printStackTrace();
         }
     }
-    
+
     public Socket verbindungsSocket() {
-      return s;
+        return s;
     }
 }
 
