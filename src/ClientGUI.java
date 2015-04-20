@@ -67,7 +67,7 @@ public class ClientGUI extends JFrame {
         Button btnList = new Button("list users");
         btnList.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                send("LIST");
+                send("LST");
             }
         });
         btnList.setActionCommand("LIST");

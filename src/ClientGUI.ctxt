@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=pClient
+comment0.target=ClientGUI(ChatClient)
+comment0.text=\r\n\ Create\ the\ frame.\r\n
+comment1.params=e
+comment1.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment2.params=e
+comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment3.params=arg0
+comment3.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment4.params=e
+comment4.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment5.params=msg
+comment5.target=void\ send(java.lang.String)
+comment6.params=text
+comment6.target=void\ write(java.lang.String)
+numComments=7
