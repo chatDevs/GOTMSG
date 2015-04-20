@@ -2,11 +2,12 @@
 comment0.params=port
 comment0.target=ChatServer(int)
 comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ ChatServer\r\n
-comment1.params=name
-comment1.target=User\ checkUser(java.lang.String)
-comment2.params=ipPort
-comment2.target=User\ checkAddr(java.lang.String)
+comment1.params=ip\ port
+comment1.target=void\ processNewConnection(java.lang.String,\ int)
+comment2.params=ip\ port\ msg
+comment2.target=void\ processMessage(java.lang.String,\ int,\ java.lang.String)
 comment3.params=ip\ port
+<<<<<<< HEAD
 comment3.target=void\ processNewConnection(java.lang.String,\ int)
 comment4.params=ip\ port\ msg
 comment4.target=void\ processMessage(java.lang.String,\ int,\ java.lang.String)
@@ -17,3 +18,7 @@ comment6.target=void\ send(java.lang.String,\ int,\ java.lang.String)
 comment7.params=msg
 comment7.target=void\ sendToAll(java.lang.String)
 numComments=8
+=======
+comment3.target=void\ processClosedConnection(java.lang.String,\ int)
+numComments=4
+>>>>>>> fdb572b698598c3cdf3cd9c6644e76e4f73fad56
