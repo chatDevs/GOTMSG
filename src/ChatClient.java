@@ -35,8 +35,8 @@ public class ChatClient
     }
 
     public void process(String pMessage){
-        System.out.println("test");
-        System.out.println(pMessage);
+        //System.out.println("test");
+        //output(pMessage);
         String withoutCmd = "";
         if(pMessage.length()>4){
             withoutCmd = pMessage.substring(4,pMessage.length()-1);
@@ -48,7 +48,7 @@ public class ChatClient
 
             output(src+" TO ME: "+msg);
 
-            connection.send("GOTMSG "+id);
+            //connection.send("GOTMSG "+id);
         }else if(pMessage.matches("\\bBRD\\b\\s.+\\bFROM\\b\\s.+\\bWITH\\b\\s.+")){
             String msg = withoutCmd.split(" FROM ")[0];
             String src = (withoutCmd.split(" FROM ")[1]).split(" WITH ")[0];
@@ -56,7 +56,7 @@ public class ChatClient
 
             output(src+" TO ALL: "+msg);
 
-            connection.send("GOTBRD "+id);
+            //connection.send("GOTBRD "+id);
         }else if(pMessage.matches("\\bLST\\b\\s.+")){
             String[] nutzerliste = withoutCmd.split(";");
             output("Liste der nutzer: ");
@@ -64,7 +64,7 @@ public class ChatClient
                 output("     "+i);
             }
         }else if(pMessage.matches("\\bOK\\b")){
-            output("Server best‰tigt "+pMessage);
+            output("Server best√§tigt "+pMessage);
         }else if(pMessage.matches("\\bERR\\b")){
             output("Server fehler "+pMessage);
         }
