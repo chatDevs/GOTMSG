@@ -12,13 +12,21 @@ public class ChatClient
     private String name;
     private String ip;
     private int port;
+    
+    private List ignor;
 
     public static boolean output = true; 
+    
+    private RSA rsa;
     public ChatClient()
     {
         //super(pIPAdresse,pPortNr);
         super();
 
+        rsa = new RSA(2048);
+        
+        ignor = new List();
+        
         ConnectDialog cd = new ConnectDialog();
         cd.setVisible(true);
 
@@ -26,6 +34,7 @@ public class ChatClient
         port = cd.getPort();
         name = cd.getName();
 
+        
         connection = new Connection(ip,port);
         receiver = new Receiver(this, connection);
         receiver.start();
@@ -46,6 +55,13 @@ public class ChatClient
             String src = (withoutCmd.split(" FROM ")[1]).split(" WITH ")[0];
             String id = withoutCmd.split("WITH")[1];
 
+            ignor.toFirst();
+            while(ignor.hasAccess()){
+                if(ignor.getObject().equals(src)){
+                    return;
+                }
+            }
+            
             output(src+" TO ME: "+msg);
 
             //connection.send("GOTMSG "+id);
@@ -54,6 +70,12 @@ public class ChatClient
             String src = (withoutCmd.split(" FROM ")[1]).split(" WITH ")[0];
             String id = withoutCmd.split("WITH")[1];
 
+            while(ignor.hasAccess()){
+                if(ignor.getObject().equals(src)){
+                    return;
+                }
+            }
+            
             output(src+" TO ALL: "+msg);
 
             //connection.send("GOTBRD "+id);
@@ -76,5 +98,18 @@ public class ChatClient
 
     private void output(String text){
         gui.write(text);
+    }
+    
+    public void addToIgnor(String name){
+        ignor.append(name);
+    }
+    
+    public void deleteFromIgnor(String name){
+            ignor.toFirst();
+            while(ignor.hasAccess()){
+                if(ignor.getObject().equals(name)){
+                    ignor.remove();
+                }
+            }
     }
 }

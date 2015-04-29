@@ -92,6 +92,34 @@ public class ClientGUI extends JFrame {
         gbc_btnQuit.gridy = 1;
         panel.add(btnQuit, gbc_btnQuit);
         
+        Button btnAddIgnor = new Button("ignor");
+        btnAddIgnor.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                client.addToIgnor(tfText.getText());
+            }
+        });
+        btnAddIgnor.setActionCommand("QUIT");
+        GridBagConstraints gbc_btnAddIgnor = new GridBagConstraints();
+        gbc_btnAddIgnor.fill = GridBagConstraints.BOTH;
+        gbc_btnAddIgnor.insets = new Insets(0, 0, 5, 0);
+        gbc_btnAddIgnor.gridx = 0;
+        gbc_btnAddIgnor.gridy = 1;
+        panel.add(btnAddIgnor, gbc_btnAddIgnor);
+        
+        Button btnDeleteIgnor = new Button("dis-ignor");
+        btnDeleteIgnor.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                client.deleteFromIgnor(tfText.getText());
+            }
+        });
+        btnDeleteIgnor.setActionCommand("QUIT");
+        GridBagConstraints gbc_btnDeleteIgnor = new GridBagConstraints();
+        gbc_btnDeleteIgnor.fill = GridBagConstraints.BOTH;
+        gbc_btnDeleteIgnor.insets = new Insets(0, 0, 5, 0);
+        gbc_btnDeleteIgnor.gridx = 0;
+        gbc_btnDeleteIgnor.gridy = 1;
+        panel.add(btnDeleteIgnor, gbc_btnDeleteIgnor);
+        
         Panel panel_1 = new Panel();
         GridBagConstraints gbc_panel_1 = new GridBagConstraints();
         gbc_panel_1.fill = GridBagConstraints.BOTH;
