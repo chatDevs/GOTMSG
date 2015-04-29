@@ -11,6 +11,8 @@ public class User
     private int port;
     private String name;
     private Socket socket;
+    private RSA rsa;
+    private boolean rsa_enabled = false;
     
     /**
      * Constructor for objects of class User
@@ -23,8 +25,20 @@ public class User
         this.socket = socket;
     }
     
+    public User(String ip, int port){
+        this.ip = ip;
+        this.port = port;
+    }
+    
     public User(String ip, int port, String name)
     {
+        this.ip = ip;
+        this.port = port;
+        this.name = name;
+    }
+    
+    public User(String ip, int port, String name, RSA rsa){
+        this.rsa = rsa;
         this.ip = ip;
         this.port = port;
         this.name = name;
@@ -48,5 +62,19 @@ public class User
     
     public Socket socket(){
         return socket;
+    }
+    
+    public RSA rsa(){
+        return rsa;
+    }
+    public void rsa(RSA rsa){
+        this.rsa = rsa;
+    }
+    public void enableRsa(){
+        rsa_enabled = true;
+    }
+    
+    public boolean rsaReady(){
+        return rsa_enabled;
     }
 }
