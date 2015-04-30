@@ -118,9 +118,10 @@ public class RSA{
         System.out.println("verschlüsselt big int: "+t);
         
         BigInteger ent = decrypt(t);
+        String ente = decrypt(""+t);
         System.out.println("base text  " + new String(ent.toByteArray()));
         byte[] dec = org.apache.commons.codec.binary.Base64.decodeBase64(ent.toByteArray());
-        System.out.println("big Int  dec " + dec);
+        System.out.println("big Int  dec " + ente);
         
         System.out.println("entschlüsselt: "+ new String(dec));
     }

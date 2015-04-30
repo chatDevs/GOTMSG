@@ -129,8 +129,8 @@ public class ChatServer
     private java.util.Map<String, Connection> connections; // man muss die verbindungen selber verwalten weil ......
     private int id;
 
-    private RSA rsa;
-    private final int L = 2048; // sicherheit wird durrch höhere schlüssellänge erhöht
+    public RSA rsa;
+    private final int L = 2048; //sicherheit wird durch höhere schlüssellänge erhöht
 
     private ServerSocket socket;
     private Loop loop;
@@ -140,6 +140,7 @@ public class ChatServer
     public ChatServer(int port)
     {
         this.port = port;
+        this.rsa = new RSA(L);
         try
         {
             socket = new ServerSocket(port);
@@ -229,7 +230,7 @@ public class ChatServer
 
         } else if(msg.matches("\\bSEC\\b")){
             System.out.println("IP: " + ip + ":" + port + " requested secure chat!");
-            rsa = new RSA(2048);
+            //rsa = new RSA(2048);
             User u = new User(ip, port);
             u.enableRsa();
             userAddr.put(ip + ":" + port, u);

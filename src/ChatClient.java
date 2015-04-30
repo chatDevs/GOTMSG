@@ -125,7 +125,8 @@ public class ChatClient
             sendClear(msg);
             return;
         }
-        connection.send(""+rsaServerKey.encrypt(msg));
+        msg = rsaServerKey.encrypt(msg);
+        connection.send(msg);
     }
 
     private void output(String text){
